@@ -37,6 +37,14 @@ html[lang=ar] h2{line-height:1.15}
 html[lang=ar] .pill,html[lang=ar] .angle small,html[lang=ar] .badge,html[lang=ar] .reel b{letter-spacing:0}
 html[lang=ar] .logo{direction:ltr}
 html[lang=ar] .price{white-space:nowrap;align-self:flex-start}
+/* Arabic: mirror the hero collage so the ribbons spill off the page edge, not over the text */
+html[dir=rtl] .grid-bg{inset:20px 40px 0 0}
+html[dir=rtl] .a1{left:auto;right:10%;transform:rotate(6deg)}
+html[dir=rtl] .a2{left:auto;right:50%;transform:rotate(-5deg)}
+html[dir=rtl] .hero-star{right:auto;left:0}
+html[dir=rtl] .r1{left:auto;right:-15%;transform:rotate(12deg)}
+html[dir=rtl] .r2{left:auto;right:-8%;transform:rotate(-16deg)}
+@media(max-width:900px){html[dir=rtl] .grid-bg{inset:10px 0 30px 0}html[dir=rtl] .a1{right:6%}html[dir=rtl] .a2{right:48%}}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:clamp(16px,1.6vw,20px);text-decoration:none;transition:transform .15s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn,.lang-btn{white-space:nowrap}
@@ -239,7 +247,7 @@ footer .muted{opacity:.7}
 <section id="work">
   <div class="head">
     <h2 data-i18n="w_h2">Recent reels</h2>
-    <a class="more js-ig" href="https://www.instagram.com/zawyteen.studio/.studio/" target="_blank" rel="noopener" data-i18n="seeall">See all on Instagram →</a>
+    <a class="more js-ig" href="https://www.instagram.com/zawyteen.studio/" target="_blank" rel="noopener" data-i18n="seeall">See all on Instagram →</a>
   </div>
   <!-- Replace each placeholder: put a cover image inside, e.g. <img src="reel1.jpg" alt="Cheese pull reel">, and set href to the reel's Instagram link -->
   <div class="work">
@@ -258,7 +266,7 @@ footer .muted{opacity:.7}
   </div>
   <div class="btns">
     <a class="btn btn-dark js-wa" href="#" target="_blank" rel="noopener" data-i18n="wa">WhatsApp us</a>
-    <a class="btn btn-white js-ig" href="https://www.instagram.com/zawyteen.studio/" target="_blank" rel="noopener" data-i18n="dm">DM @zawyteen</a>
+    <a class="btn btn-white js-ig" href="https://www.instagram.com/zawyteen.studio/" target="_blank" rel="noopener" data-i18n="dm">DM @zawyteen.studio</a>
   </div>
 </div>
 
@@ -310,7 +318,7 @@ footer .muted{opacity:.7}
     st4: "التسليم", st4p: "ريلز جاهزة للنشر، ومعاها جولتين تعديل.",
     w_h2: "أحدث الريلز", seeall: "شوف الكل على إنستجرام ←",
     c_h2: "يلا نصوّر<br>حكايتك.", c_p: "احكيلنا عن مكانك، وهنبعتلك أول فكرة ريل خلال يوم.",
-    dm: "ابعتلنا على <bdi>@zawyteen</bdi>",
+    dm: "ابعتلنا على <bdi>@zawyteen.studio</bdi>",
     f_loc: "استوديو ريلز · القاهرة، مصر", f_ig: "إنستجرام", f_tt: "تيك توك", f_wa: "واتساب"
   };
   var TITLE = { en: document.title, ar: "زاويتين | Zawyteen · استوديو ريلز في القاهرة" };
