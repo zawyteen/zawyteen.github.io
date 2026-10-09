@@ -8,7 +8,7 @@
 <meta property="og:title" content="Zawyteen | زاويتين · Reels Studio Cairo">
 <meta property="og:description" content="Pro coverage, UGC and storytelling reels for Cairo businesses. Reels from 1,500 EGP.">
 <meta name="theme-color" content="#513A6B">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23513A6B'/%3E%3Cpath d='M20 7v26M7 20h26M11 11l18 18M29 11L11 29' stroke='%23BEFA4F' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23513A6B'/%3E%3Cpath d='M10 10h20L20 20' fill='none' stroke='%23BEFA4F' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 20L10 30h20' fill='none' stroke='%23E83399' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
@@ -26,8 +26,22 @@ img{max-width:100%;display:block}
 .ar{font-family:'Readex Pro',sans-serif;font-weight:700}
 .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
 .star{display:block}
+.lang-btn{font:inherit;font-weight:700;font-size:16px;cursor:pointer;background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:999px;min-height:44px;padding:8px 16px}
+.lang-btn:hover{background:var(--lime)}
+.lang-btn .ar{font-size:16px}
+/* Arabic mode */
+html[lang=ar] body{font-family:'Readex Pro',system-ui,sans-serif}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] .price,html[lang=ar] .card .num,html[lang=ar] .logo b{letter-spacing:0}
+html[lang=ar] .hero h1{line-height:1.15}
+html[lang=ar] h2{line-height:1.15}
+html[lang=ar] .pill,html[lang=ar] .angle small,html[lang=ar] .badge,html[lang=ar] .reel b{letter-spacing:0}
+html[lang=ar] .logo{direction:ltr}
+html[lang=ar] .price{white-space:nowrap;align-self:flex-start}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:clamp(16px,1.6vw,20px);text-decoration:none;transition:transform .15s ease}
 .btn:hover{transform:translateY(-2px)}
+.btn,.lang-btn{white-space:nowrap}
+@media(max-width:430px){nav .logo .ar{display:none}nav{gap:10px}.logo b{font-size:20px}.nav-links{gap:8px}.nav-links .btn{padding:10px 14px;font-size:14px}.lang-btn{padding:6px 10px;font-size:14px;min-height:40px}}
+@media(max-width:380px){nav .logo .star{display:none}.nav-links .btn{padding:8px 12px;font-size:13px}}
 .btn-dark{background:var(--purple);color:#fff}
 .btn-line{border:2px solid var(--ink)}
 .btn-white{background:#fff;color:#1A1A1A}
@@ -42,7 +56,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0
 .logo .ar{font-size:clamp(16px,1.5vw,22px);opacity:.7}
 .nav-links{display:flex;align-items:center;gap:32px;font-weight:600;font-size:18px}
 .nav-links a{text-decoration:none}
-@media(max-width:820px){.nav-links a:not(.btn){display:none}.nav-links .btn{min-height:44px;padding:10px 18px;font-size:15px}}
+@media(max-width:820px){.nav-links{gap:10px}.nav-links a:not(.btn){display:none}.nav-links .btn{min-height:44px;padding:10px 18px;font-size:15px}.lang-btn{padding:8px 12px;font-size:15px}}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:50px 0 90px}
@@ -146,85 +160,86 @@ footer .muted{opacity:.7}
 <div class="wrap">
 <nav>
   <a class="logo" href="#top" aria-label="Zawyteen home">
-    <svg class="star" width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="#9AD83A" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M20 2v36M2 20h36M7 7l26 26M33 7L7 33"/></svg>
+    <svg class="star" width="32" height="32" viewBox="0 0 40 40" fill="none" stroke="#9AD83A" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path stroke-linejoin="round" d="M7 7h26L20 20"/><path stroke="#E83399" stroke-linejoin="round" d="M20 20L7 33h26"/></svg>
     <b>Zawyteen</b><span class="ar">زاويتين</span>
   </a>
   <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#packages">Packages</a>
-    <a href="#work">Work</a>
-    <a class="btn btn-dark" href="#contact">Book a shoot</a>
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#packages" data-i18n="nav_packages">Packages</a>
+    <a href="#work" data-i18n="nav_work">Work</a>
+    <button class="lang-btn" type="button" id="langBtn" aria-label="Switch language"><span class="ar">عربي</span></button>
+    <a class="btn btn-dark" href="#contact" data-i18n="nav_book">Book a shoot</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div>
-    <span class="pill">Reels studio · Cairo</span>
-    <h1>Every story has <span class="mark">two angles.</span></h1>
-    <p>We film your place like pros and tell its story like a friend. Professional coverage plus UGC and storytelling, in reels that make Cairo stop scrolling.</p>
+    <span class="pill" data-i18n="pill">Reels studio · Cairo</span>
+    <h1 data-i18n="h1">Every story has <span class="mark">two angles.</span></h1>
+    <p data-i18n="hero_p">We film your place like pros and tell its story like a friend. Professional coverage plus UGC and storytelling, in reels that make Cairo stop scrolling.</p>
     <div class="ctas">
-      <a class="btn btn-dark js-wa" href="#contact">WhatsApp us</a>
-      <a class="btn btn-line" href="#packages">Reels from 1,500 EGP</a>
+      <a class="btn btn-dark js-wa" href="#contact" data-i18n="wa">WhatsApp us</a>
+      <a class="btn btn-line" href="#packages" data-i18n="from">Reels from 1,500 EGP</a>
     </div>
   </div>
   <div class="collage" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="angle a1">
       <!-- To add a photo: <img src="coverage.jpg" alt=""> -->
-      <small>ANGLE 01</small><span class="ph">[Photo: venue coverage]</span><strong>The<br>coverage</strong>
+      <small data-i18n="angle1">ANGLE 01</small><span class="ph">[Photo: venue coverage]</span><strong data-i18n="a1">The<br>coverage</strong>
     </div>
     <div class="angle a2">
       <!-- To add a photo: <img src="ugc.jpg" alt=""> -->
-      <small>ANGLE 02</small><span class="ph">[Photo: UGC on camera]</span><strong>The<br>story</strong>
+      <small data-i18n="angle2">ANGLE 02</small><span class="ph">[Photo: UGC on camera]</span><strong data-i18n="a2">The<br>story</strong>
     </div>
-    <svg class="hero-star" viewBox="0 0 40 40" fill="none" stroke="#BEFA4F" stroke-width="3.2" stroke-linecap="round"><path d="M20 2v36M2 20h36M7 7l26 26M33 7L7 33"/></svg>
-    <div class="ribbon r2">pro coverage ✶ UGC ✶ storytelling ✶ pro coverage ✶ UGC ✶ storytelling ✶ pro coverage ✶ UGC ✶</div>
-    <div class="ribbon r1">Zawyteen ✶ <span class="ar">زاويتين</span> ✶ every story has two angles ✶ Zawyteen ✶ <span class="ar">زاويتين</span> ✶ every story has two angles ✶</div>
+    <svg class="hero-star" viewBox="0 0 40 40" fill="none" stroke="#BEFA4F" stroke-width="3.2" stroke-linecap="round"><path stroke-linejoin="round" d="M7 7h26L20 20"/><path stroke="#E83399" stroke-linejoin="round" d="M20 20L7 33h26"/></svg>
+    <div class="ribbon r2" data-i18n="r2">pro coverage · UGC · storytelling · pro coverage · UGC · storytelling · pro coverage · UGC ·</div>
+    <div class="ribbon r1" data-i18n="r1">Zawyteen · <span class="ar">زاويتين</span> · every story has two angles · Zawyteen · <span class="ar">زاويتين</span> · every story has two angles ·</div>
   </div>
 </header>
 </div>
 
-<div class="marquee" aria-hidden="true"><span>✶ PRO COVERAGE ✶ UGC ✶ STORYTELLING ✶ SCRIPTS ✶ CAIRO ✶ PRO COVERAGE ✶ UGC ✶ STORYTELLING ✶ SCRIPTS ✶ CAIRO</span><span>✶ PRO COVERAGE ✶ UGC ✶ STORYTELLING ✶ SCRIPTS ✶ CAIRO ✶ PRO COVERAGE ✶ UGC ✶ STORYTELLING ✶ SCRIPTS ✶ CAIRO</span></div>
+<div class="marquee" aria-hidden="true"><span data-i18n="mq">· PRO COVERAGE · UGC · STORYTELLING · SCRIPTS · CAIRO · PRO COVERAGE · UGC · STORYTELLING · SCRIPTS · CAIRO</span><span data-i18n="mq">· PRO COVERAGE · UGC · STORYTELLING · SCRIPTS · CAIRO · PRO COVERAGE · UGC · STORYTELLING · SCRIPTS · CAIRO</span></div>
 
 <div class="wrap">
 <section id="services">
   <div class="head">
-    <h2>Two angles.<br>One reel that sells.</h2>
-    <p>One of us films. One of us talks. Together we make content your customers actually stop for.</p>
+    <h2 data-i18n="s_h2">Two angles.<br>One reel that sells.</h2>
+    <p data-i18n="s_p">One of us films. One of us talks. Together we make content your customers actually stop for.</p>
   </div>
   <div class="cards">
-    <div class="card lime"><span class="num">01</span><div><h3>Pro coverage</h3><p>Cinematic shots of your place, food and team. Lit, stabilised and colour graded.</p></div></div>
-    <div class="card teal"><span class="num">02</span><div><h3>UGC on camera</h3><p>Real reactions, taste tests and reviews that feel like a friend's recommendation.</p></div></div>
-    <div class="card pink"><span class="num">03</span><div><h3>Scripts &amp; storytelling</h3><p>Hooks and stories written for Egyptian audiences, approved by you before we shoot.</p></div></div>
+    <div class="card lime"><span class="num">01</span><div><h3 data-i18n="c1h">Pro coverage</h3><p data-i18n="c1p">Cinematic shots of your place, food and team. Lit, stabilised and colour graded.</p></div></div>
+    <div class="card teal"><span class="num">02</span><div><h3 data-i18n="c2h">UGC on camera</h3><p data-i18n="c2p">Real reactions, taste tests and reviews that feel like a friend's recommendation.</p></div></div>
+    <div class="card pink"><span class="num">03</span><div><h3 data-i18n="c3h">Scripts &amp; storytelling</h3><p data-i18n="c3p">Hooks and stories written for Egyptian audiences, approved by you before we shoot.</p></div></div>
   </div>
 </section>
 
 <section id="packages">
   <div class="head">
-    <h2>Packages</h2>
-    <p>Every reel includes the script, pro coverage, UGC where it fits, editing, music and captions.</p>
+    <h2 data-i18n="p_h2">Packages</h2>
+    <p data-i18n="p_p">Every reel includes the script, pro coverage, UGC where it fits, editing, music and captions.</p>
   </div>
   <div class="pkgs">
-    <div class="pkg"><h3>Single</h3><span class="meta">1 reel</span><span class="price">1,500<span> EGP</span></span><p>Launches, offers and events. A good way to try us.</p></div>
-    <div class="pkg" style="background:var(--teal)"><h3>Starter</h3><span class="meta">4 reels · 1 a week</span><span class="price">5,000<span> EGP</span></span><p>A steady weekly presence from one shoot day.</p></div>
-    <div class="pkg featured"><div class="toprow"><h3>Growth</h3><span class="badge">MOST POPULAR</span></div><span class="meta">8 reels · 2 a week</span><span class="price">10,000<span> EGP</span></span><p>A mix of coverage and UGC reels with a posting plan.</p></div>
+    <div class="pkg"><h3 data-i18n="single">Single</h3><span class="meta" data-i18n="single_m">1 reel</span><span class="price">1,500<span data-i18n="egp"> EGP</span></span><p data-i18n="single_p">Launches, offers and events. A good way to try us.</p></div>
+    <div class="pkg" style="background:var(--teal)"><h3 data-i18n="starter">Starter</h3><span class="meta" data-i18n="starter_m">4 reels · 1 a week</span><span class="price">5,000<span data-i18n="egp"> EGP</span></span><p data-i18n="starter_p">A steady weekly presence from one shoot day.</p></div>
+    <div class="pkg featured"><div class="toprow"><h3 data-i18n="growth">Growth</h3><span class="badge" data-i18n="popular">MOST POPULAR</span></div><span class="meta" data-i18n="growth_m">8 reels · 2 a week</span><span class="price">10,000<span data-i18n="egp"> EGP</span></span><p data-i18n="growth_p">A mix of coverage and UGC reels with a posting plan.</p></div>
   </div>
 </section>
 
 <section>
-  <div class="head"><h2>How it works</h2></div>
+  <div class="head"><h2 data-i18n="how">How it works</h2></div>
   <div class="steps">
-    <div class="step"><span class="dot lime">1</span><div><b>Brief</b><span>A short call about your place, menu and goals.</span></div></div>
-    <div class="step"><span class="dot teal">2</span><div><b>Script</b><span>We write the hooks and stories. You approve before we shoot.</span></div></div>
-    <div class="step"><span class="dot pink">3</span><div><b>Shoot day</b><span>Coverage and UGC filmed in one batch, at your quietest hours.</span></div></div>
-    <div class="step"><span class="dot purple">4</span><div><b>Deliver</b><span>Edited reels ready to post, with 2 revision rounds included.</span></div></div>
+    <div class="step"><span class="dot lime">1</span><div><b data-i18n="st1">Brief</b><span data-i18n="st1p">A short call about your place, menu and goals.</span></div></div>
+    <div class="step"><span class="dot teal">2</span><div><b data-i18n="st2">Script</b><span data-i18n="st2p">We write the hooks and stories. You approve before we shoot.</span></div></div>
+    <div class="step"><span class="dot pink">3</span><div><b data-i18n="st3">Shoot day</b><span data-i18n="st3p">Coverage and UGC filmed in one batch, at your quietest hours.</span></div></div>
+    <div class="step"><span class="dot purple">4</span><div><b data-i18n="st4">Deliver</b><span data-i18n="st4p">Edited reels ready to post, with 2 revision rounds included.</span></div></div>
   </div>
 </section>
 
 <section id="work">
   <div class="head">
-    <h2>Recent reels</h2>
-    <a class="more js-ig" href="https://www.instagram.com/zawyteen" target="_blank" rel="noopener">See all on Instagram →</a>
+    <h2 data-i18n="w_h2">Recent reels</h2>
+    <a class="more js-ig" href="https://www.instagram.com/zawyteen" target="_blank" rel="noopener" data-i18n="seeall">See all on Instagram →</a>
   </div>
   <!-- Replace each placeholder: put a cover image inside, e.g. <img src="reel1.jpg" alt="Cheese pull reel">, and set href to the reel's Instagram link -->
   <div class="work">
@@ -236,24 +251,24 @@ footer .muted{opacity:.7}
 </section>
 
 <div class="contact" id="contact">
-  <svg class="bg-star" viewBox="0 0 40 40" fill="none" stroke="#2A1F38" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 2v36M2 20h36M7 7l26 26M33 7L7 33"/></svg>
+  <svg class="bg-star" viewBox="0 0 40 40" fill="none" stroke="#2A1F38" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path stroke-linejoin="round" d="M7 7h26L20 20"/><path stroke-linejoin="round" d="M20 20L7 33h26"/></svg>
   <div style="position:relative">
-    <h2>Let's film<br>your story.</h2>
-    <p>Tell us about your place and we'll send a first reel idea within a day.</p>
+    <h2 data-i18n="c_h2">Let's film<br>your story.</h2>
+    <p data-i18n="c_p">Tell us about your place and we'll send a first reel idea within a day.</p>
   </div>
   <div class="btns">
-    <a class="btn btn-dark js-wa" href="#" target="_blank" rel="noopener">WhatsApp us</a>
-    <a class="btn btn-white js-ig" href="https://www.instagram.com/zawyteen" target="_blank" rel="noopener">DM @zawyteen</a>
+    <a class="btn btn-dark js-wa" href="#" target="_blank" rel="noopener" data-i18n="wa">WhatsApp us</a>
+    <a class="btn btn-white js-ig" href="https://www.instagram.com/zawyteen" target="_blank" rel="noopener" data-i18n="dm">DM @zawyteen</a>
   </div>
 </div>
 
 <footer>
   <div class="logo"><b>Zawyteen</b><span class="ar">زاويتين</span></div>
-  <span class="muted">Reels studio · Cairo, Egypt</span>
+  <span class="muted" data-i18n="f_loc">Reels studio · Cairo, Egypt</span>
   <div class="links">
-    <a class="js-ig" href="https://www.instagram.com/zawyteen" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.tiktok.com/@zawyteen" target="_blank" rel="noopener">TikTok</a>
-    <a class="js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="js-ig" href="https://www.instagram.com/zawyteen" target="_blank" rel="noopener" data-i18n="f_ig">Instagram</a>
+    <a href="https://www.tiktok.com/@zawyteen" target="_blank" rel="noopener" data-i18n="f_tt">TikTok</a>
+    <a class="js-wa" href="#" target="_blank" rel="noopener" data-i18n="f_wa">WhatsApp</a>
   </div>
 </footer>
 </div>
@@ -261,11 +276,74 @@ footer .muted{opacity:.7}
 <script>
   // ===== EDIT HERE: your WhatsApp number in international format, digits only (Egypt = 20 + number without the first 0) =====
   var WHATSAPP = "201007313309";
-  var MESSAGE = "Hi Zawyteen! I'd like to know more about your reel packages.";
-  document.querySelectorAll('.js-wa').forEach(function (a) {
-    a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(MESSAGE);
-    a.target = '_blank'; a.rel = 'noopener';
+  var MESSAGES = {
+    en: "Hi Zawyteen! I'd like to know more about your reel packages.",
+    ar: "أهلاً زاويتين! حابب أعرف أكتر عن باكدجات الريلز."
+  };
+
+  // ===== Arabic text for every part of the page (edit freely) =====
+  var AR = {
+    nav_services: "الخدمات", nav_packages: "الباكدجات", nav_work: "أعمالنا", nav_book: "احجز تصوير",
+    pill: "استوديو ريلز · القاهرة",
+    h1: 'لكل حكاية <span class="mark">زاويتين.</span>',
+    hero_p: "بنصوّر مكانك باحترافية ونحكي حكايته كأننا صحابك. تصوير احترافي مع UGC وحكي، في ريلز تخلّي القاهرة كلها توقف عندها.",
+    wa: "كلّمنا واتساب", from: "ريلز تبدأ من 1,500 جنيه",
+    angle1: "الزاوية 01", angle2: "الزاوية 02", a1: "التصوير", a2: "الحكاية",
+    r2: "تصوير احترافي · UGC · حكي · تصوير احترافي · UGC · حكي · تصوير احترافي · UGC · حكي ·",
+    r1: "زاويتين · Zawyteen · لكل حكاية زاويتين · زاويتين · Zawyteen · لكل حكاية زاويتين ·",
+    mq: "· تصوير احترافي · UGC · حكي · سكريبتات · القاهرة · تصوير احترافي · UGC · حكي · سكريبتات · القاهرة",
+    s_h2: "زاويتين.<br>وريل واحد بيبيع.",
+    s_p: "واحدة بتصوّر، وواحدة بتتكلم. ومع بعض بنعمل محتوى عملاءك فعلاً بيقفوا عنده.",
+    c1h: "تصوير احترافي", c1p: "لقطات سينمائية لمكانك وأكلك وفريقك، بإضاءة وتثبيت وتلوين احترافي.",
+    c2h: "UGC قدّام الكاميرا", c2p: "ردود فعل حقيقية وتجارب تذوّق ورأي صريح، كأنها نصيحة من صاحبك.",
+    c3h: "سكريبت وحكي", c3p: "هوكس وحكايات مكتوبة للجمهور المصري، وبتوافق عليها قبل التصوير.",
+    p_h2: "الباكدجات",
+    p_p: "كل ريل فيه السكريبت والتصوير الاحترافي ولقطات UGC لو مناسبة، والمونتاج والمزيكا والكابشن.",
+    single: "سينجل", single_m: "ريل واحد", single_p: "للافتتاحات والعروض والمناسبات. أحسن طريقة تجرّبنا.",
+    starter: "ستارتر", starter_m: "4 ريلز · ريل كل أسبوع", starter_p: "ظهور ثابت كل أسبوع من يوم تصوير واحد.",
+    growth: "جروث", growth_m: "8 ريلز · 2 كل أسبوع", growth_p: "مزيج من ريلز التصوير وريلز UGC، مع خطة نشر.",
+    popular: "الأكثر طلبًا", egp: " جنيه",
+    how: "إزاي بنشتغل",
+    st1: "البريف", st1p: "مكالمة قصيرة عن مكانك والمنيو وأهدافك.",
+    st2: "السكريبت", st2p: "بنكتب الهوكس والحكايات، وبتوافق قبل التصوير.",
+    st3: "يوم التصوير", st3p: "التصوير الاحترافي ولقطات UGC في يوم واحد، في أهدى ساعات عندك.",
+    st4: "التسليم", st4p: "ريلز جاهزة للنشر، ومعاها جولتين تعديل.",
+    w_h2: "أحدث الريلز", seeall: "شوف الكل على إنستجرام ←",
+    c_h2: "يلا نصوّر<br>حكايتك.", c_p: "احكيلنا عن مكانك، وهنبعتلك أول فكرة ريل خلال يوم.",
+    dm: "ابعتلنا على <bdi>@zawyteen</bdi>",
+    f_loc: "استوديو ريلز · القاهرة، مصر", f_ig: "إنستجرام", f_tt: "تيك توك", f_wa: "واتساب"
+  };
+  var TITLE = { en: document.title, ar: "زاويتين | Zawyteen · استوديو ريلز في القاهرة" };
+
+  var nodes = document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function (el) { el.setAttribute('data-en', el.innerHTML); });
+
+  function setLang(lang) {
+    var ar = lang === 'ar';
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    nodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      el.innerHTML = ar && AR[k] ? AR[k] : el.getAttribute('data-en');
+    });
+    document.title = TITLE[lang];
+    document.getElementById('langBtn').innerHTML = ar ? 'EN' : '<span class="ar">عربي</span>';
+    document.querySelectorAll('.js-wa').forEach(function (a) {
+      a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(MESSAGES[lang]);
+      a.target = '_blank'; a.rel = 'noopener';
+    });
+    try { localStorage.setItem('zawyteen-lang', lang); } catch (e) {}
+  }
+
+  document.getElementById('langBtn').addEventListener('click', function () {
+    setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar');
   });
+
+  // Start in: ?lang=ar in the link > last choice > the visitor's phone language
+  var start = new URLSearchParams(location.search).get('lang');
+  if (!start) { try { start = localStorage.getItem('zawyteen-lang'); } catch (e) {} }
+  if (!start) { start = (navigator.language || '').slice(0, 2) === 'ar' ? 'ar' : 'en'; }
+  setLang(start === 'ar' ? 'ar' : 'en');
 </script>
 </body>
 </html>
