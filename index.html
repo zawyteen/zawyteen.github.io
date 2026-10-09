@@ -147,6 +147,13 @@ section{padding:clamp(64px,9vw,120px) 0 0}
 .reel b{font-size:14px;letter-spacing:.15em;position:relative}
 .reel span{font-size:15px;opacity:.8;position:relative}
 .reel img,.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel img.cover{inset:auto;left:50%;top:50%;width:182%;height:58%;max-width:none;transform:translate(-50%,-50%) rotate(-90deg);object-fit:cover}
+.reel.has-cover{color:#fff}
+.reel.has-cover::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 28%,rgba(0,0,0,0) 62%,rgba(0,0,0,.6))}
+.reel b,.reel span{z-index:2}
+.reel .play{align-self:center;width:72px;height:72px;border-radius:999px;background:rgba(255,255,255,.92);color:#2A1F38;display:flex;align-items:center;justify-content:center;font-size:26px;opacity:1;padding-left:4px;box-shadow:0 10px 24px rgba(0,0,0,.25);transition:transform .15s ease}
+.reel:hover .play{transform:scale(1.08)}
+.reel span:last-child{font-weight:700;opacity:1}
 @media(max-width:900px){.work{grid-template-columns:1fr 1fr;gap:12px}}
 .more{font-weight:700;font-size:clamp(16px,1.6vw,20px)}
 
@@ -250,12 +257,12 @@ footer .muted{opacity:.7}
     <h2 data-i18n="w_h2">Recent reels</h2>
     <a class="more js-ig" href="https://www.instagram.com/zawyteen.studio/" target="_blank" rel="noopener" data-i18n="seeall">See all on Instagram →</a>
   </div>
-  <!-- Replace each placeholder: put a cover image inside, e.g. <img src="reel1.jpg" alt="Cheese pull reel">, and set href to the reel's Instagram link -->
+  <!-- Reel tiles: cover images are reel-1.jpg … reel-4.jpg in this repo (saved sideways for sharpness; CSS turns them upright) -->
   <div class="work">
-    <a class="reel purple" href="#"><b>[CLIENT NAME]</b><span>[Reel: cheese pull]</span></a>
-    <a class="reel lime" href="#"><b>[CLIENT NAME]</b><span>[Reel: taste test]</span></a>
-    <a class="reel teal" href="#"><b>[CLIENT NAME]</b><span>[Reel: venue tour]</span></a>
-    <a class="reel pink" href="#"><b>[CLIENT NAME]</b><span>[Reel: meet the chef]</span></a>
+    <a class="reel purple has-cover" href="https://www.instagram.com/reel/CgPiw_Rj5mB/" target="_blank" rel="noopener"><img class="cover" src="reel-1.jpg" alt="Breakfast croissant reel" loading="lazy"><b>INSTAGRAM</b><span class="play" aria-hidden="true">▶</span><span data-i18n="watch">Watch the reel</span></a>
+    <a class="reel lime has-cover" href="https://www.instagram.com/reel/CyEIlURMszY/" target="_blank" rel="noopener"><img class="cover" src="reel-2.jpg" alt="Korean food reel" loading="lazy"><b>INSTAGRAM</b><span class="play" aria-hidden="true">▶</span><span data-i18n="watch">Watch the reel</span></a>
+    <a class="reel teal has-cover" href="https://www.tiktok.com/@roadiat/video/7231256961201802502" target="_blank" rel="noopener"><img class="cover" src="reel-3.jpg" alt="Bakery reel" loading="lazy"><b>TIKTOK</b><span class="play" aria-hidden="true">▶</span><span data-i18n="watch">Watch the reel</span></a>
+    <a class="reel pink has-cover" href="https://www.instagram.com/reel/Cr76XwCo4Om/" target="_blank" rel="noopener"><img class="cover" src="reel-4.jpg" alt="Brunch pancakes reel" loading="lazy"><b>INSTAGRAM</b><span class="play" aria-hidden="true">▶</span><span data-i18n="watch">Watch the reel</span></a>
   </div>
 </section>
 
@@ -317,7 +324,7 @@ footer .muted{opacity:.7}
     st2: "السكريبت", st2p: "بنكتب الهوكس والحكايات، وبتوافق قبل التصوير.",
     st3: "يوم التصوير", st3p: "التصوير الاحترافي ولقطات UGC في يوم واحد، في أهدى ساعات عندك.",
     st4: "التسليم", st4p: "ريلز جاهزة للنشر، ومعاها جولتين تعديل.",
-    w_h2: "أحدث الريلز", seeall: "شوف الكل على إنستجرام ←",
+    w_h2: "أحدث الريلز", watch: "شوف الريل", seeall: "شوف الكل على إنستجرام ←",
     c_h2: "يلا نصوّر<br>حكايتك.", c_p: "احكيلنا عن مكانك، وهنبعتلك أول فكرة ريل خلال يوم.",
     dm: "ابعتلنا على <bdi>@zawyteen.studio</bdi>",
     f_loc: "استوديو ريلز · القاهرة، مصر", f_ig: "إنستجرام", f_tt: "تيك توك", f_wa: "واتساب"
